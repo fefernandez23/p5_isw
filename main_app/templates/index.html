@@ -1,0 +1,72 @@
+{% extends 'base_users.html' %}
+
+{% block navbar %}
+    <nav
+      class="navbar navbar-expand-lg rounded-2"
+      style="background-color: rgb(16, 39, 104)"
+    >
+      <div class="container-fluid flex-row justify-content-between">
+        <div>
+          <!-- Agrega la imagen del logo -->
+          <a class="navbar-brand" href="#"
+            ><span class="display-6 text-light">FABRIM</span></a
+          >
+        </div>
+        <div
+          class="flex-row p-1"
+          role="group"
+          aria-label="Basic outlined example"
+        >
+          <a class="btn btn-outline-primary" href={% url 'login' %}>
+            Iniciar Sesión
+          </a>
+          <a class="btn btn-outline-info" href={% url 'register' %}>
+            Registrarse
+          </a>
+        </div>
+      </div>
+    </nav>
+{% endblock navbar %}
+    
+
+{% block content %}
+    <div class="flex-column p-1 w-100 h-auto">
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./assets/images/1.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/images/2.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/images/3.jpg" class="d-block w-100" alt="..." />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+{% endblock content %}
+
+    

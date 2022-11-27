@@ -1,0 +1,60 @@
+{% extends 'base_admin.html' %}
+{%load static%}
+{% block title %}Pedidos{% endblock title %}
+{% block content_title %}Pedidos{% endblock content_title %}
+{% block button_add %}<button class="btn btn-outline-primary">Agregar</button>{% endblock button_add %}
+{% block content_table %}
+<div
+class="d-flex justify-content-center align-content-center w-100 h-0 p-3"
+>
+<!-- Aki va la tabla -->
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th class="w-50">Fecha</th>
+      <th class="w-50">Cant. Medicamentos</th>
+      {% if perms.main_app.change_pedido or perms.main_app.delete_pedido %}
+        <th>Acciones</th>
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for el in object_list %}
+    <tr>
+      <td>{{el.fecha}}</td>
+      <td>{{el.cantidad_medicamento}}</td>
+      {% if perms.main_app.change_pedido or perms.main_app.delete_pedido %}
+      <td>
+        <div
+          class="d-flex flex-row p-1 m-0 justify-content-center align-content-center"
+        >
+        {% if perms.main_app.change_pedido %} 
+        <a>
+          <img
+            src={% static 'images/icons/pen-fill.svg'%}
+            alt="editar"
+            style="width: 20px; height: 20px"
+            class="btn btn-outline-light rounded-circle mx-1 p-0"
+          />
+        </a>
+        {% endif %}
+          {% if perms.main_app.delete_pedido %} 
+            <a href={% url 'delete_pedido' %}>
+              <img
+                src={% static 'images/icons/trash-fill.svg'%}
+                alt="eliminar"
+                style="width: 20px; height: 20px"
+                class="btn btn-outline-light rounded-circle p-0"
+              />
+            </a>
+          {% endif %}
+        </div>
+      </td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+</div>
+{% endblock content_table %}

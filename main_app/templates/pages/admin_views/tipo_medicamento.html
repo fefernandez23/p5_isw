@@ -1,0 +1,45 @@
+{% extends 'base_admin.html' %}
+{%load static %}
+{% block title %}Tipos de Medicamentos{% endblock title %}
+{% block content_title %}Tipos de Medicamentos{% endblock content_title %}
+{% block button_add %}<button class="btn btn-outline-primary">Agregar</button>{% endblock button_add %}
+{% block content_table %}
+        <div
+          class="d-flex justify-content-center align-content-center w-100 h-0 p-3"
+        >
+          <!-- Aki va la tabla -->
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th class="w-50">Nombre</th>
+                <th class="w-50">No_Serie</th>
+                <th class="w-25">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alprazolan</td>
+                <td>ASDBKAJSD</td>
+                <td>
+                  <div
+                    class="d-flex flex-row p-1 m-0 justify-content-center align-content-center"
+                  >
+                    <img
+                      src={%static '/images/icons/pen-fill.svg'%}
+                      alt="editar"
+                      style="width: 20px; height: 20px"
+                      class="btn btn-outline-light rounded-circle mx-1 p-0"
+                    />
+                    <img
+                      src={%static '/images/icons/trash-fill.svg'%}
+                      alt="editar"
+                      style="width: 20px; height: 20px"
+                      class="btn btn-outline-light rounded-circle p-0"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+{% endblock content_table %}

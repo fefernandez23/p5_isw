@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={% static 'css/bootstrap.min.css' %} />
+    <title>FABRIM | {% block title %}{% endblock title %}</title>
+  </head>
+  <body class="d-flex flex-column p-0 m-0 vh-100">
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Caja contenedora del side y del content -->
+    <div class="d-flex flex-row h-100">
+      <!-- Sidebar -->
+      {% include 'sidebar.html' %}
+
+      <!-- Contenido de la Página y Sidebar-->
+      <div
+        class="p-3 flex-column justify-content-center align-content-center align-items-center w-100"
+      >
+        <!-- Titulo del Contenido y botón de agregar-->
+        <div class="d-flex align-items-center justify-content-between ali p-3">
+          <p class="display-6 m-0">{% block content_title %}{% endblock content_title %}</p>
+
+          {% block button_add %}{% endblock button_add %}
+        </div>
+        
+        {% block content_table %}{% endblock content_table %}
+        
+      </div>
+    </div>
+
+    <!-- Caja del Content -->
+
+    <!-- Caja del Footer -->
+    <footer
+      class="d-flex flex-wrap justify-content-center align-items-center p-3 rounded-2"
+      style="background-color: rgb(16, 39, 104)"
+    >
+      <div class="flex-col text-center">
+        <p class="mb-0 text-light">
+          <strong>© 2022 </strong> - Universidad de las Ciencias Informáticas
+        </p>
+        <p class="mb-0 text-muted">
+          <strong> Todos los derechos son de FABRIM ®</strong>
+        </p>
+      </div>
+    </footer>
+  
+    <script src={% static 'js/bootstrap.min.js' %}></script>
+    <script src={% static 'js/bootstrap.bundle.min.js' %}></script>
+  </body>
+</html>
